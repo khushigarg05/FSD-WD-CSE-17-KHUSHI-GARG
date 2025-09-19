@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+</head>
+<body>
+    <h1>Registration Form</h1>
+    <form>
+        <label>Admission No.</label>
+        <input type="text" id="roll" name="admission" required><br><br>
+        
+        <label>First Name</label>
+        <input type="text" name="fname" required><br><br>
+
+        <label>Middle Name</label>
+        <input type="text" name="mname" required><br><br>
+
+        <label>Last Name</label>
+        <input type="text" name="lname" required><br><br>
+
+        <label>Date Of Birth</label>
+        <input type="date" name="date" required><br><br>
+
+        <label>Father Name</label>
+        <input type="text" name="fathername" required><br><br>
+
+        <label>Mother Name</label>
+        <input type="text" name="mothername" required><br><br>
+
+        <label>Gender</label>
+        <input type="radio" name="gender" value="male"> Male 
+        <input type="radio" name="gender" value="female"> Female <br><br>
+
+        <label>Religion</label>
+        <input type="radio" name="religion" value="hindu"> Hindu 
+        <input type="radio" name="religion" value="muslim"> Muslim 
+        <input type="radio" name="religion" value="other"> Other <br><br>
+
+        <label>Hobbies</label>
+        Singing<input type="checkbox" name="box" required>
+        Reading<input type="checkbox" name="box" required>
+        Dancing<input type="checkbox" name="box" required><br><br>
+
+        <label>Email</label>
+        <input type="email" name="email" required><br><br>
+
+        <label>Phone</label>
+        <input type="tel" name="phone" required><br><br>
+
+        <label>Upload Photo</label>
+        <input type="file" name="photo" accept="image/*"><br><br>
+
+        <label>Upload 10th Marksheet</label>
+        <input type="file" name="marksheet" accept="image/*"><br><br>
+
+        Choose course <select>
+            <option>---select---</option>
+            <option>CSE</option>
+            <option>IT</option>
+            <option>EE</option>
+            <option>ME</option>
+            <option>ECE</option>
+            <option>CIVIL</option>
+
+
+        </select><br><br>
+
+        Address<textarea name="Address"></textarea><br><br>
+
+        <button>Register</button>
+        <button>Reset</button>
+    </form>
+</body>
+</html>

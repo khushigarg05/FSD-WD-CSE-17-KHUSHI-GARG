@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Application Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            font-weight: bold;
+        }
+        label {
+            display: inline-block;
+            width: 250px;
+            margin-bottom: 10px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 250px;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+        input[type="checkbox"],
+        input[type="radio"] {
+            margin-left: 10px;
+        }
+        textarea {
+            height: 80px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>APPLICATION FORM</h1>
+    <p>Thank you for your interest in working with us. Please check below for available job opportunities that meet your criteria and send your application by filling out the Job Application Form.</p>
+
+    <form>
+        <div class="form-group">
+            <label for="fullname">* Full Name:</label>
+            <input type="text" id="fullname" name="fullname" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">* Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="age">* Age:</label>
+            <input type="number" id="age" name="age" required>
+        </div>
+
+        <div class="form-group">
+            <label for="role">Which option best describes your current role?</label>
+            <select id="role" name="role">
+                <option value="student">Student</option>
+                <option value="professional">Professional</option>
+                <option value="intern">Intern</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>* Would you like to list references?</label>
+            <input type="radio" name="references" value="yes" required> Yes
+            <input type="radio" name="references" value="no" required> No
+        </div>
+
+        <div class="form-group">
+            <label for="position">Which position would you like to apply for?</label>
+            <select id="position" name="position">
+                <option value="">Select an option</option>
+                <option value="frontend">Front-End Developer</option>
+                <option value="backend">Back-End Developer</option>
+                <option value="fullstack">Full Stack Developer</option>
+                <option value="data">Data Scientist</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Which programming languages do you know?</label><br>
+            <input type="checkbox" name="languages" value="java"> Java<br>
+            <input type="checkbox" name="languages" value="python"> Python<br>
+            <input type="checkbox" name="languages" value="javascript"> JavaScript<br>
+            <input type="checkbox" name="languages" value="c++"> C++<br>
+            <input type="checkbox" name="languages" value="swift"> Swift<br>
+            <input type="checkbox" name="languages" value="ruby"> Ruby<br>
+            <input type="checkbox" name="languages" value=".net"> .NET<br>
+        </div>
+
+        <div class="form-group">
+            <label for="resume">Upload Resume (optional):</label>
+            <input type="file" id="resume" name="resume">
+        </div>
+
+        <div class="form-group">
+            <label for="comments">Any Comments?</label><br>
+            <textarea id="comments" name="comments" placeholder="Enter your comment here..."></textarea>
+        </div>
+
+        <button type="submit">Submit Application</button>
+    </form>
+
+</body>
+</html>
