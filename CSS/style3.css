@@ -1,0 +1,55 @@
+body {
+  background: #f4f4f4;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 40px;
+}
+
+/* Image Container */
+.image-container {
+  position: relative;
+  display: inline-block;
+  width: 300px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Image Style */
+.image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+/* Overlay Style */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6); /* semi-transparent overlay */
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+/* Text inside overlay */
+.text {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Hover Effects */
+.image-container:hover img {
+  transform: scale(1.1); /* zoom effect */
+}
+
+.image-container:hover .overlay {
+  opacity: 1; /* show overlay */
+}

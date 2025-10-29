@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.flip-box {
+  width: 250px;
+  height: 250px;
+  perspective: 1000px; /* adds 3D depth */
+  margin: 50px auto;
+}
+
+.flip-box-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-box:hover .flip-box-inner {
+  transform: rotateY(180deg); /* flips the box */
+}
+
+.flip-box-front, .flip-box-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* hides backside when not visible */
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Front image */
+.flip-box-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Back image */
+.flip-box-back {
+  transform: rotateY(180deg);
+}
+
+.flip-box-back img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+</style>
+</head>
+<body>
+
+<h2 style="text-align:center;">3D Image Flip on Hover</h2>
+
+<div class="flip-box">
+  <div class="flip-box-inner">
+    <div class="flip-box-front">
+      <img src="forest.jpeg" alt="Front Side">
+    </div>
+    <div class="flip-box-back">
+      <img src="mountain.jpeg" alt="Back Side">
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

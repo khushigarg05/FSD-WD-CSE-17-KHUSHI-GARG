@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Innovative CSS — Morphing Glass Card</title>
+  <style>
+    /* =====================
+       Variables & reset
+       ===================== */
+    :root{
+      --bg-1: #0f172a;
+      --bg-2: #06202f;
+      --accent-a: #6ee7b7;
+      --accent-b: #60a5fa;
+      --glass: rgba(255,255,255,0.06);
+      --glass-2: rgba(255,255,255,0.08);
+      --card-w: 360px;
+      --card-h: 480px;
+      --radius: 20px;
+      --shadow: 0 10px 30px rgba(2,6,23,0.6);
+      --speed: 8s;
+      --ease: cubic-bezier(.22,.9,.35,1);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: radial-gradient(1200px 600px at 10% 20%, rgba(96,165,250,0.08), transparent 8%),
+                  radial-gradient(1000px 500px at 90% 80%, rgba(110,231,183,0.06), transparent 8%),
+                  linear-gradient(180deg,var(--bg-1),var(--bg-2));
+      color: #e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      display:grid;
+      place-items:center;
+      padding:48px;
+      gap:20px;
+    }
+
+    /* =====================
+       Layout & container
+       ===================== */
+    .wrap{
+      width:100%;
+      max-width:1100px;
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:36px;
+      align-items:center;
+    }
+
+    /* Fallback for narrow screens */
+    @media (max-width:920px){
+      .wrap{grid-template-columns:1fr}
+    }
+
+    /* =====================
+       Info column (left)
+       ===================== */
+    .info{
+      padding:28px;
+    }
+    .title{
+      font-size:28px;
+      line-height:1.05;
+      margin:0 0 10px 0;
+      letter-spacing:-0.2px;
+    }
+    .lead{
+      color:rgba(230,238,248,0.82);
+      margin:0 0 18px 0;
+      max-width:720px;
+    }
+    .bullets{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .chip{
+      background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.04);
+      padding:8px 12px;
+      border-radius:999px;
+      font-size:13px;
+      color:rgba(230,238,248,0.9);
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      box-shadow: 0 2px 8px rgba(2,6,23,0.35);
+    }
+
+    /* =====================
+       Card (right)
+       ===================== */
+    .card-wrap{
+      width:var(--card-w);
+      height:var(--card-h);
+      position:relative;
+      margin:auto;
+      filter:drop-shadow(var(--shadow));
+    }
+
+    /* animated gradient background blob */
+    .blob{
+      position:absolute;
+      inset:0;
+      border-radius:var(--radius);
+      overflow:hidden;
+      z-index:0;
+    }
+    .blob::before, .blob::after{
+      content:"";
+      position:absolute;
+      width:180%;
+      height:180%;
+      left:-40%;
+      top:-30%;
+      background:linear-gradient(45deg,var(--accent-a), var(--accent-b));
+      mix-blend-mode:screen;
+      filter:blur(36px) saturate(140%);
+      transform-origin:center;
+      animation:blobMove var(--speed) var(--ease) infinite;
+      opacity:0.9;
+    }
+    .blob::after{
+      left:auto; right:-40%;
+      top:auto; bottom:-30%;
+      animation-duration: calc(var(--speed) * 1.2);
+      opacity:0.75;
+    }
+    @keyframes blobMove{
+      0%{transform:translate3d(0,0,0) rotate(0deg) scale(1)}
+      25%{transform:translate3d(6%, -4%, 0) rotate(12deg) scale(1.06)}
+      50%{transform:translate3d(-3%, 6%, 0) rotate(-8deg) scale(0.96)}
+      75%{transform:translate3d(4%, 3%, 0) rotate(6deg) scale(1.02)}
+      100%{transform:translate3d(0,0,0) rotate(0deg) scale(1)}
+    }
+
+    /* main glass card layer */
+    .card{
+      position:relative;
+      z-index:2;
+      width:100%;
+      height:100%;
+      border-radius:var(--radius);
+      background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+      border:1px solid rgba(255,255,255,0.06);
+      backdrop-filter: blur(8px) saturate(120%);
+      padding:26px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      box-shadow: 0 6px 18px rgba(2,6,23,0.45);
+      overflow:hidden;
+    }
+
+    /* subtle grid lines inside card */
+    .card::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background-image: linear-gradient(transparent 60%, rgba(255,255,255,0.006) 60%), linear-gradient(90deg, transparent 60%, rgba(255,255,255,0.006) 60%);
+      background-size: 100% 36px, 36px 100%;
+      pointer-events:none;
+      mix-blend-mode:overlay;
+    }
+
+    /* profile area */
+    .profile{
+      display:flex;
+      gap:16px;
+      align-items:center;
+    }
+    .avatar{
+      width:84px;
+      height:84px;
+      border-radius:18px;
+      background:linear-gradient(160deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+      display:grid; place-items:center;
+      font-weight:700;
+      font-size:22px;
+      letter-spacing:0.6px;
+      border:1px solid rgba(255,255,255,0.06);
+      box-shadow: 0 6px 18px rgba(2,6,23,0.35) inset;
+    }
+    .meta h3{margin:0;font-size:18px}
+    .meta p{margin:6px 0 0 0;color:rgba(230,238,248,0.7);font-size:14px}
+
+    /* stats row */
+    .stats{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .stat{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      padding:10px 12px;
+      border-radius:12px;
+      min-width:86px;
+      text-align:center;
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .stat b{display:block;font-size:16px}
+    .stat span{font-size:12px;color:rgba(230,238,248,0.7)}
+
+    /* CTA */
+    .cta{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .btn{
+      padding:12px 16px;
+      border-radius:12px;
+      border:0;
+      cursor:pointer;
+      font-weight:600;
+      background:linear-gradient(90deg,var(--accent-b),var(--accent-a));
+      box-shadow:0 6px 20px rgba(96,165,250,0.12);
+      color:#04263b;
+      transform:translateZ(0);
+      transition:transform .22s var(--ease), box-shadow .22s var(--ease);
+    }
+    .btn:active{transform:translateY(2px) scale(.996)}
+
+    /* tiny toggle using checkbox hack */
+    .toggle{
+      display:inline-flex;align-items:center;gap:8px;
+    }
+    .switch{
+      width:48px;height:28px;background:rgba(255,255,255,0.04);border-radius:999px;position:relative;padding:4px;display:inline-block;
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .switch .knob{
+      width:20px;height:20px;border-radius:50%;background:white;position:absolute;left:4px;top:4px;transition:left .26s var(--ease), transform .26s var(--ease);
+      box-shadow:0 6px 16px rgba(2,6,23,0.3);
+    }
+    input[type=checkbox]{display:none}
+    input[type=checkbox]:checked + .switch{background:linear-gradient(90deg,var(--accent-b),var(--accent-a))}
+    input[type=checkbox]:checked + .switch .knob{left:calc(100% - 24px);transform:scale(.98)}
+
+    /* small hover interactions */
+    .card:hover .avatar{transform:translateY(-6px);transition:transform .5s var(--ease)}
+    .card:hover .btn{transform:translateY(-6px);box-shadow:0 18px 40px rgba(96,165,250,0.14)}
+
+    /* accessibility: reduces animation if user prefers reduced motion */
+    @media (prefers-reduced-motion:reduce){
+      .blob::before, .blob::after{animation:none}
+    }
+
+    /* Responsive: scale card on tiny screens */
+    @media (max-width:420px){
+      .card-wrap{width:92vw;height:520px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="info">
+      <h1 class="title">An innovative, purely CSS interactive card</h1>
+      <p class="lead">No JavaScript — just CSS tricks: animated morphing gradient blobs, frosted glass effect, checkbox toggle (theme/interaction), and subtle motion for delight. Drop this single HTML file into your browser to preview.</p>
+
+      <div class="bullets">
+        <div class="chip">CSS-only animation</div>
+        <div class="chip">Accessible (prefers-reduced-motion)</div>
+        <div class="chip">Responsive</div>
+        <div class="chip">No external assets</div>
+      </div>
+    </div>
+
+    <div class="card-wrap" role="region" aria-label="Profile card demo">
+
+      <div class="blob" aria-hidden="true"></div>
+
+      <article class="card">
+        <header class="profile">
+          <div class="avatar">KC</div>
+          <div class="meta">
+            <h3>Creative Coder</h3>
+            <p>Eager to learn & grow — CSS experiments</p>
+          </div>
+          <div style="margin-left:auto;display:flex;flex-direction:column;gap:6px;align-items:flex-end">
+            <label class="toggle" title="Play animation">
+              <input id="animToggle" type="checkbox" aria-label="toggle animations" />
+              <span class="switch" aria-hidden="true"><span class="knob"></span></span>
+            </label>
+            <small style="font-size:12px;color:rgba(230,238,248,0.7)">Animations: on</small>
+          </div>
+        </header>
+
+        <div style="display:flex;flex-direction:column;gap:18px">
+          <div class="stats">
+            <div class="stat"><b>2</b><span>Projects</span></div>
+            <div class="stat"><b>1</b><span>Stars</span></div>
+            <div class="stat"><b>53</b><span>Commits</span></div>
+          </div>
+
+          <p style="margin:0;color:rgba(230,238,248,0.78);line-height:1.45">A sample layout that showcases a modern frosted-card look with animated background blobs and subtle micro-interactions. Use the checkbox toggle to flip a visual state (pure CSS).</p>
+        </div>
+
+        <footer style="display:flex;justify-content:space-between;align-items:center">
+          <div style="display:flex;gap:8px;align-items:center">
+            <button class="btn">Connect</button>
+            <button class="btn" style="background:transparent;border:1px solid rgba(255,255,255,0.06);color:inherit">Message</button>
+          </div>
+          <div style="font-size:12px;color:rgba(230,238,248,0.66)">Made with ❤ • CSS</div>
+        </footer>
+      </article>
+
+    </div>
+  </div>
+
+  <!--
+    Notes:
+    - This is a single-file demo (HTML + basic CSS only).
+    - Swap the initials in .avatar or add <img> if you'd like a real picture.
+    - To change animation speed, edit --speed in :root.
+  -->
+</body>
+</html>
