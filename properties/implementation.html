@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -51,7 +51,6 @@ td {
   transform: rotate(45deg);
 }
 
-/* Two columns inside the main content */
 .content {
   display: flex;
   justify-content: space-around;
@@ -73,8 +72,6 @@ td {
 </head>
 
 <body>
-
-<!-- Navigation Table -->
 <table border="1">
   <tr>
     <th onclick="location.href='about.html'">About</th>
@@ -84,16 +81,128 @@ td {
 
   <tr>
     <td colspan="3">
-      <h3 style="text-align:center;">Vision & Mission</h3>
+    
       <div class="content">
         <div class="column">
           <div class="image-container">
-            <img src="https://via.placeholder.com/200" alt="ABC S&C Photo">
+            <img src="abes.jpg" alt="ABSEC Photo">
           </div>
-          <p>ABC S&C Photo</p>
+        
         </div>
         <div class="column">
-          <p>Some details or highlights about the department or mission can go here...</p>
+          <p>ABES at a Glance
+For over two decades, ABES has firmly established itself in society as epitome of outcome-focused learning. Its enduring reputation embodies trust and value.</p>
+        </div>
+      </div>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>-->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>College Web Layout</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+
+  /* 🌈 Linear gradient + background image */
+  background: 
+    linear-gradient(rgba(255, 230, 230, 0.8), rgba(255, 245, 245, 0.8)),
+    url('background.jpg'); /* replace with your background image file */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+table {
+  width: 90%;
+  margin: 40px auto;
+  border-collapse: collapse;
+  background-color: white;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  border-radius: 10px;
+}
+
+th {
+  background-color: peachpuff;
+  padding: 15px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+th:hover {
+  background-color: #ffb6b6;
+}
+
+td {
+  padding: 20px;
+  text-align: center;
+  vertical-align: top;
+}
+
+.image-container img {
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  transition: transform 0.5s ease;
+}
+
+.image-container img:hover {
+  transform: rotate(45deg);
+}
+
+.content {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.column {
+  width: 40%;
+  background-color: #fff0f0;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.column:hover {
+  background-color: #ffe0e0;
+}
+</style>
+</head>
+
+<body>
+<table border="1">
+  <tr>
+    <th onclick="location.href='about.html'">About</th>
+    <th onclick="location.href='department.html'">Department</th>
+    <th onclick="location.href='contact.html'">Contact</th>
+  </tr>
+
+  <tr>
+    <td colspan="3">
+      <div class="content">
+        <div class="column">
+          <div class="image-container">
+            <img src="abes.jpg" alt="ABSEC Photo">
+          </div>
+        </div>
+        <div class="column">
+          <p><b>ABES at a Glance</b><br>
+          For over two decades, ABES has firmly established itself in society as an epitome of outcome-focused learning. Its enduring reputation embodies trust and value.</p>
         </div>
       </div>
     </td>
