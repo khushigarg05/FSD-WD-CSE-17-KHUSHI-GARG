@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Styling Example</title>
+
+    <style>
+        /* ------------- Global Styles ------------- */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header Styling */
+        header {
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-family: 'Georgia', serif;
+            font-size: 36px;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px #000;
+        }
+
+        /* Navigation Bar Styling */
+        nav {
+            background-color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            margin: 0 20px;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #007bff;
+        }
+
+        /* Section Styling with Individual Background */
+        section {
+            background-image: url('https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin: 50px auto;
+            width: 80%;
+            border-radius: 15px;
+            color: white;
+            padding: 40px;
+            box-shadow: 0px 0px 20px rgba(0,0,0,0.4);
+        }
+
+        section h2 {
+            font-family: 'Lucida Handwriting', cursive;
+            font-size: 28px;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px #000;
+        }
+
+        section p {
+            font-size: 18px;
+            line-height: 1.8;
+            font-family: 'Verdana', sans-serif;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 16px;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        My Beautiful CSS Web Page
+    </header>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Gallery</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <section>
+        <h2>Welcome to My Page</h2>
+        <p>
+            This web page demonstrates how to use different CSS styles and background images.
+            The body of the page has a stunning ocean background image, and this section uses 
+            its own scenic background. The text uses various fonts and sizes to show style versatility.
+        </p>
+        <p>
+            You can use <b>font-family</b> to change how your text looks, 
+            and <b>background-image</b> to make your web pages more visually appealing.
+        </p>
+    </section>
+
+    <footer>
+        © 2025 MyCSSDesign | Designed with ❤️ using Cascading Style Sheets
+    </footer>
+
+</body>
+</html>
