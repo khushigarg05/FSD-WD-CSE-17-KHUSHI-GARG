@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://images.unsplash.com/photo-1557683316-973673baf926?w=1200');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-family: 'Georgia', serif;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: bold;
+            font-family: 'Verdana', sans-serif;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="email"],
+        input[type="date"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 14px;
+            font-family: 'Courier New', monospace;
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 5px;
+        }
+
+        .checkbox-group {
+            margin-top: 5px;
+        }
+
+        .checkbox-group label {
+            display: inline-block;
+            margin-right: 15px;
+            margin-bottom: 10px;
+            font-weight: normal;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-family: 'Arial', sans-serif;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .error {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: #6c757d;
+        }
+
+        a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+
+        a:active {
+            color: #004085;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Registration Form</h2>
+        <form id="registrationForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
+                <div class="error" id="nameError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password">
+                <div class="error" id="passwordError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email">
+                <div class="error" id="emailError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="text" id="phone" name="phone">
+                <div class="error" id="phoneError"></div>
+            </div>
+
+            <div class="form-group">
+                <label>Sex:</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="sex" value="male"> Male</label>
+                    <label><input type="radio" name="sex" value="female"> Female</label>
+                </div>
+                <div class="error" id="sexError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob">
+                <div class="error" id="dobError"></div>
+            </div>
+
+            <div class="form-group">
+                <label>Languages Known:</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="languages" value="English"> English</label>
+                    <label><input type="checkbox" name="languages" value="Telugu"> Telugu</label>
+                    <label><input type="checkbox" name="languages" value="Hindi"> Hindi</label>
+                    <label><input type="checkbox" name="languages" value="Tamil"> Tamil</label>
+                </div>
+                <div class="error" id="languagesError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address">
+                <div class="error" id="addressError"></div>
+            </div>
+
+            <button type="submit">Register</button>
+        </form>
+    </div>
+
+    <script>
+        function validateForm() {
+            let isValid = true;
+
+            // Clear all previous errors
+            document.querySelectorAll('.error').forEach(function(error) {
+                error.style.display = 'none';
+                error.textContent = '';
+            });
+
+            // Validate Name
+            const name = document.getElementById('name').value.trim();
+            const nameError = document.getElementById('nameError');
+            const namePattern = /^[A-Za-z\s]+$/;
+            
+            if (name === '') {
+                nameError.textContent = 'Name is required.';
+                nameError.style.display = 'block';
+                isValid = false;
+            } else if (!namePattern.test(name)) {
+                nameError.textContent = 'Name should contain alphabets only.';
+                nameError.style.display = 'block';
+                isValid = false;
+            } else if (name.length < 6) {
+                nameError.textContent = 'Name should not be less than 6 characters.';
+                nameError.style.display = 'block';
+                isValid = false;
+            }
+
+            // Validate Password
+            const password = document.getElementById('password').value;
+            const passwordError = document.getElementById('passwordError');
+            
+            if (password === '') {
+                passwordError.textContent = 'Password is required.';
+                passwordError.style.display = 'block';
+                isValid = false;
+            } else if (password.length < 6) {
+                passwordError.textContent = 'Password should not be less than 6 characters length.';
+                passwordError.style.display = 'block';
+                isValid = false;
+            }
+
+            // Validate Email
+            const email = document.getElementById('email').value.trim();
+            const emailError = document.getElementById('emailError');
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            if (email === '') {
+                emailError.textContent = 'E-mail is required.';
+                emailError.style.display = 'block';
+                isValid = false;
+            } else if (!emailPattern.test(email)) {
+                emailError.textContent = 'E-mail should follow the standard pattern (name@domain.com).';
+                emailError.style.display = 'block';
+                isValid = false;
+            }
+
+            // Validate Phone
+            const phone = document.getElementById('phone').value.trim();
+            const phoneError = document.getElementById('phoneError');
+            const phonePattern = /^\d{10}$/;
+            
+            if (phone === '') {
+                phoneError.textContent = 'Phone number is required.';
+                phoneError.style.display = 'block';
+                isValid = false;
+            } else if (!phonePattern.test(phone)) {
+                phoneError.textContent = 'Phone number should contain 10 digits only.';
+                phoneError.style.display = 'block';
+                isValid = false;
+            }
+
+            // Validate Sex
+            const sex = document.querySelector('input[name="sex"]:checked');
+            const sexError = document.getElementById('sexError');
+            
+            if (!sex) {
+                sexError.textContent = 'Please select your sex.';
+                sexError.style.display = 'block';
+                isValid = false;
+            }
+
+            // Validate Date of Birth
+            const dob = document.getElementById('dob').value;
+            const dobError = document.getElementById('dobError');
+            
+            if (dob === '') {
+                dobError.textContent = 'Date of birth is required.';
+                dobError.style.display = 'block';
+                isValid = false;
+            }
+
+            // Validate Languages
+            const languages = document.querySelectorAll('input[name="languages"]:checked');
+            const languagesError = document.getElementById('languagesError');
+            
+            if (languages.length === 0) {
+                languagesError.textContent = 'Please select at least one language.';
+                languagesError.style.display = 'block';
+                isValid = false;
+            }
+
+            // Validate Address
+            const address = document.getElementById('address').value.trim();
+            const addressError = document.getElementById('addressError');
+            
+            if (address === '') {
+                addressError.textContent = 'Address is required.';
+                addressError.style.display = 'block';
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (validateForm()) {
+                alert('Registration Successful!');
+                this.reset();
+            }
+        });
+    </script>
+</body>
+</html>
