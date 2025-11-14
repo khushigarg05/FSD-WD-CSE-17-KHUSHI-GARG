@@ -4,112 +4,127 @@
     <meta charset="UTF-8">
     <title>Registration - The Book Loft</title>
 
-    <!-- Unique Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+    <!-- Soft Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
 
     <style>
+        * {
+            font-family: 'Poppins', sans-serif !important;
+            color: #5e4b56;
+        }
+
+        h1, h2 {
+            font-family: 'Cormorant Garamond', serif !important;
+            color: #7b6d8d !important;
+            letter-spacing: 1px;
+        }
+
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #fff3e6;
+            background-color: #fff7f2;
             background-image: url("reg_background.webp");
             background-size: cover;
+            background-repeat: no-repeat;   /* ⭐ required */
             background-position: center;
             margin: 0;
             padding: 0;
         }
 
+        /* ⭐ REQUIRED LINK STATES */
+        a:link {
+            color: #544e61;
+            text-decoration: none;
+        }
+        a:visited {
+            color: #6f5b75;
+        }
+        a:hover {
+            color: #9c7fa4;
+            text-decoration: underline;
+        }
+        a:active {
+            color: #c28bb5;
+        }
+
         .header {
-            background-color: #f4a460;
+            background-color: #f6d6c7;
             padding: 20px;
             text-align: center;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 20px;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .header img {
-            height: 60px;
+            border-bottom: 2px solid #e5c1b1;
         }
 
         .navbar {
-            background-color: #ffe4c4;
+            background-color: #fdeee6;
             display: flex;
             justify-content: center;
-            padding: 10px;
+            padding: 12px;
             gap: 40px;
-            border-bottom: 1px solid #c8a27a;
+            border-bottom: 1px solid #e7c8b7;
         }
 
-        .navbar a {
-            text-decoration: none;
-            font-size: 18px;
-            color: black;
-            font-weight: 600;
-        }
-
-        /* Container with background image */
         .container {
             width: 40%;
             margin: 40px auto;
-            background-image: url("form_background.jpg"); /* your table background image */
+            background-image: url("form_background.jpg");
             background-size: cover;
+            background-repeat: no-repeat;  /* ⭐ required */
             background-position: center;
             padding: 30px;
             border-radius: 12px;
-            border: 1px solid #d6b18a;
-            box-shadow: 0 0 15px rgba(0,0,0,0.2);
-            backdrop-filter: blur(2px);
-        }
-
-        h2 {
-            text-align: center;
-            color: #5c3317;
-            margin-bottom: 20px;
-            font-family: 'Playfair Display', serif;
+            border: 1px solid #e7c9c2;
+            box-shadow: 0 0 15px rgba(0,0,0,0.15);
+            backdrop-filter: blur(3px);
         }
 
         label {
             font-weight: 600;
+            color: #6a5c7a;
         }
 
         input, select {
             width: 100%;
             padding: 10px;
             margin: 8px 0 20px 0;
-            border: 1px solid #c7c7c7;
-            border-radius: 4px;
-            font-family: 'Poppins', sans-serif;
+            border: 1px solid #d5c9d3;
+            border-radius: 6px;
+            background-color: #fff9f7;
+            color: #4e4a57;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #c3a6da;
+            box-shadow: 0 0 5px #e3d7f4;
         }
 
         button {
             width: 100%;
             padding: 12px;
-            background-color: #f4a460;
+            background-color: #d7bde2;
             border: none;
             color: white;
             font-size: 18px;
-            border-radius: 5px;
+            border-radius: 6px;
             cursor: pointer;
             font-weight: 600;
         }
 
         button:hover {
-            background-color: #d88b3c;
+            background-color: #c9a3db;
         }
     </style>
 </head>
 
 <body>
 
-    <!-- Header -->
     <div class="header">
-        <img src="bookstore.jpeg" alt="Book Loft Logo">
+        <img src="bookstore.jpeg" alt="Book Loft Logo" style="height: 60px;">
         <h1>The Book Loft</h1>
     </div>
 
-    <!-- Navigation -->
     <div class="navbar">
         <a href="home.html">Home</a>
         <a href="login.html">Login</a>
@@ -118,28 +133,27 @@
         <a href="cart.html">Cart</a>
     </div>
 
-    <!-- Registration Form -->
     <div class="container">
         <h2>Registration Form</h2>
 
-        <form action="login.html" method="post">
+        <form>
             <label>Full Name</label>
-            <input type="text" placeholder="Enter your full name" required>
+            <input type="text" placeholder="Enter your full name">
 
             <label>Email</label>
-            <input type="email" placeholder="Enter your email" required>
+            <input type="email" placeholder="Enter your email">
 
             <label>Phone Number</label>
-            <input type="text" placeholder="Enter phone number" required>
+            <input type="text" placeholder="Enter phone number">
 
             <label>Password</label>
-            <input type="password" placeholder="Create password" required>
+            <input type="password" placeholder="Create password">
 
             <label>Confirm Password</label>
-            <input type="password" placeholder="Re-enter password" required>
+            <input type="password" placeholder="Re-enter password">
 
             <label>Select Branch</label>
-            <select required>
+            <select>
                 <option value="">-- Choose Branch --</option>
                 <option>CSE</option>
                 <option>ECE</option>
