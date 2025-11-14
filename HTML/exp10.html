@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interactive Quiz | Enhanced Version</title>
+    <link rel="stylesheet" href="style10.css">
+</head>
+
+<body>
+
+    <!-- Start Screen -->
+    <div id="startScreen">
+        <h1>✨ Welcome to the GK Quiz ✨</h1>
+        <button onclick="startQuiz()">Start Quiz</button>
+    </div>
+
+    <!-- Quiz Container -->
+    <div class="container" id="quizBox">
+
+        <div class="top-bar">
+            <div id="progressText">Question 1 of 5</div>
+            <div id="timer">Time: 30s</div>
+        </div>
+
+        <div class="progress">
+            <div id="progressBar"></div>
+        </div>
+
+        <div id="questionBox"></div>
+
+        <div class="btn-group">
+            <button id="prevBtn" onclick="prevQuestion()">Previous</button>
+            <button id="nextBtn" onclick="nextQuestion()">Next</button>
+        </div>
+
+        <button id="submitBtn" onclick="submitQuiz()">Submit Quiz</button>
+
+    </div>
+
+    <!-- Result Screen -->
+    <div id="resultScreen">
+        <h1 id="resultEmoji"></h1>
+        <h2 id="finalScore"></h2>
+        <button onclick="restartQuiz()">Restart Quiz</button>
+    </div>
+
+<script src="script.js"></script>
+</body>
+</html>

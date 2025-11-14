@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration - The Book Loft</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600&family=Raleway:wght@400;600&family=Lora&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+            color: #5e4b56;
+        }
+
+        h1, h2 {
+            font-family: 'Playfair Display', serif;
+            color: #7b6d8d;
+        }
+
+        body {
+            background-image: url("reg_background.webp");
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #f6d6c7;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            border-bottom: 2px solid #e5c1b1;
+        }
+
+        .navbar {
+            background-color: #fdeee6;
+            display: flex;
+            justify-content: center;
+            padding: 12px;
+            gap: 40px;
+            border-bottom: 1px solid #e7c8b7;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            font-size: 18px;
+            color: #544e61;
+            font-weight: 600;
+        }
+
+        .navbar a:hover { color: #9c7fa4; }
+
+        .container {
+            width: 40%;
+            margin: 40px auto;
+            background-image: url("form_background.jpg");
+            background-size: cover;
+            background-position: center;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #e7c9c2;
+            box-shadow: 0 0 15px rgba(0,0,0,0.15);
+            backdrop-filter: blur(3px);
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0 20px 0;
+            border: 1px solid #d5c9d3;
+            border-radius: 6px;
+            background-color: #fff9f7;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            background-color: #d7bde2;
+            border: none;
+            color: white;
+            font-size: 18px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover { background-color: #c9a3db; }
+
+        /* small buttons for JS manipulation */
+        .js-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .js-buttons button {
+            width: 48%;
+            background-color: #b2c7ff;
+            font-size: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <img src="bookstore.jpeg" style="height: 60px;">
+        <h1>The Book Loft</h1>
+    </div>
+
+    <div class="navbar">
+        <a href="#">Home</a>
+        <a href="#">Login</a>
+        <a href="#">Registration</a>
+        <a href="#">Catalogue</a>
+        <a href="#">Cart</a>
+    </div>
+
+    <div class="container" id="formBox">
+        <h2 id="titleText">Registration Form</h2>
+
+        <form>
+            <label>Full Name</label>
+            <input type="text">
+
+            <label>Email</label>
+            <input type="email">
+
+            <label>Phone Number</label>
+            <input type="text">
+
+            <label>Password</label>
+            <input type="password">
+
+            <label>Confirm Password</label>
+            <input type="password">
+
+            <label>Select Branch</label>
+            <select>
+                <option>-- Choose Branch --</option>
+                <option>CSE</option>
+                <option>ECE</option>
+                <option>EEE</option>
+                <option>CIVIL</option>
+            </select>
+
+            <button type="submit">Register</button>
+        </form>
+
+        <!-- JS Manipulation Buttons -->
+        <div class="js-buttons">
+            <button onclick="changeFont()">Change Font Style</button>
+            <button onclick="changeBackground()">Change Background</button>
+        </div>
+    </div>
+
+<script>
+    /* FUNCTION 1: Change Font with JavaScript */
+    function changeFont() {
+        document.body.style.fontFamily = "'Raleway', sans-serif";
+        document.getElementById("titleText").style.fontFamily = "'Lora', serif";
+    }
+
+    /* FUNCTION 2: Change Background Image with JavaScript */
+    function changeBackground() {
+        document.body.style.backgroundImage = "url('soft_flowers_bg.jpg')";
+        document.getElementById("formBox").style.backgroundImage = "url('pastel_form_bg.jpg')";
+    }
+</script>
+
+</body>
+</html>

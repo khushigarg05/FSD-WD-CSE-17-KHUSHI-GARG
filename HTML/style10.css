@@ -1,0 +1,103 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-image: url("bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#startScreen, #resultScreen {
+    text-align: center;
+    margin-top: 15%;
+}
+
+#startScreen button, #resultScreen button {
+    padding: 12px 25px;
+    background: #a883da;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+#startScreen button:hover,
+#resultScreen button:hover {
+    background: #9167c7;
+}
+
+.container {
+    width: 45%;
+    margin: 60px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    display: none;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.progress {
+    width: 100%;
+    height: 10px;
+    background: #e6d9ff;
+    border-radius: 20px;
+}
+#progressBar {
+    height: 10px;
+    background: #a883da;
+    width: 0%;
+    border-radius: 20px;
+    transition: 0.4s ease;
+}
+
+.option {
+    margin: 12px 0;
+    padding: 10px;
+    border: 1px solid #c7b6d9;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.option:hover {
+    background-color: #f3eaff;
+    cursor: pointer;
+}
+
+.correct {
+    background: #c8f7c5 !important;
+    border-color: #4fa64f !important;
+}
+.wrong {
+    background: #ffd2d2 !important;
+    border-color: #ff5c5c !important;
+}
+
+.btn-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    padding: 10px 20px;
+    background: #b898e2;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+button:hover {
+    background: #a883da;
+}
+
+#submitBtn {
+    width: 100%;
+    margin-top: 20px;
+    display: none;
+}
